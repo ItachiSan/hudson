@@ -198,7 +198,12 @@ fi
 if [ $USE_CCACHE -eq 1 ]
 then
   # make sure ccache is in PATH
+
+if [ "$REPO_BRANCH" == "ics" ]; then
+  export PATH="$PATH:/opt/local/bin/:$(pwd)/prebuilt/$(uname|awk '{print tolower($0)}')-x86/ccache"
+else
   export PATH="$PATH:/opt/local/bin/:$(pwd)/prebuilts/misc/$(uname|awk '{print tolower($0)}')-x86/ccache"
+fi
   export CCACHE_DIR=~/ccache-jenkins/$JOB_NAME/$REPO_BRANCH
   echo Actual path: $PATH
   echo Actual ccache: $(which ccache)
