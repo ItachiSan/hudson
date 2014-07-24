@@ -198,8 +198,10 @@ fi
 if [ $USE_CCACHE -eq 1 ]
 then
   # make sure ccache is in PATH
-  export PATH="$PATH:/opt/local/bin/:$PWD/prebuilts/misc/$(uname|awk '{print tolower($0)}')-x86/ccache"
+  export PATH="$PATH:/opt/local/bin/:$(pwd)/prebuilts/misc/$(uname|awk '{print tolower($0)}')-x86/ccache"
   export CCACHE_DIR=~/ccache-jenkins/$JOB_NAME/$REPO_BRANCH
+  echo Actual path: $PATH
+  echo Actual ccache: $(which ccache)
   mkdir -p $CCACHE_DIR
 fi
 

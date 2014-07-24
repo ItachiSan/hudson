@@ -11,7 +11,7 @@ export WORKSPACE=$PWD
 
 if [ ! -d hudson ]
 then
-  git clone https://github.com/ItachiSan/hudson.git -b cm
+  git clone https://github.com/ItachiSan/hudson.git -b cm-test
 fi
 
 cd hudson
