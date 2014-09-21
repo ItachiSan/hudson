@@ -284,6 +284,18 @@ rm -f $OUT/cm-*.zip*
 
 UNAME=$(uname)
 
+# CM build tags
+if [ "$RELEASE_TYPE" = "CM_NIGHTLY" ]
+then
+  export CM_NIGHTLY=true
+elif [ "$RELEASE_TYPE" = "CM_EXPERIMENTAL" ]
+then
+  export CM_EXPERIMENTAL=true
+elif [ "$RELEASE_TYPE" = "CM_RELEASE" ]
+then
+  export CM_RELEASE=true
+fi
+
 if [ ! -z "$CM_EXTRAVERSION" ]
 then
   export CM_EXPERIMENTAL=true
